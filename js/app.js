@@ -59,6 +59,14 @@
   if(!isDashboard) return;
   PapioAuth.requireAuth('signup.html');
 
+  var collapseBtn = document.querySelector('.app-sidebar-top .icon-btn');
+  var sidebar = document.querySelector('.app-sidebar');
+  if(collapseBtn && sidebar){
+    collapseBtn.addEventListener('click', function(){
+      sidebar.classList.toggle('collapsed');
+    });
+  }
+
   var trigger = document.querySelector('.app-topbar-right');
   if(!trigger) return;
   var menu = document.createElement('div');
