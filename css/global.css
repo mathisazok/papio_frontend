@@ -16,5 +16,19 @@ img{display:block; max-width:100%;}
 .full-bleed{width:100vw; position:relative; left:50%; right:50%; margin-left:-50vw; margin-right:-50vw;}
 
 /* ===== SCROLL REVEAL (état initial, l'animation est pilotée par js/components.js) ===== */
-.reveal{opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease;}
+.reveal{opacity:0; transform:translateY(24px); transition:opacity .7s cubic-bezier(.22,.9,.32,1), transform .7s cubic-bezier(.22,.9,.32,1);}
 .reveal.in{opacity:1; transform:translateY(0);}
+.cards.reveal .card:nth-child(1){transition-delay:0s;}
+.cards .card.reveal:nth-of-type(1){transition-delay:0s;}
+.cards .card.reveal:nth-of-type(2){transition-delay:.08s;}
+.cards .card.reveal:nth-of-type(3){transition-delay:.16s;}
+
+/* ===== INTERACTIONS PREMIUM : feedback tactile sur tout élément cliquable ===== */
+a, button, .icon-btn, .app-nav-item, .toggle button, .create-dd-btn, .create-dd-item, .card-cta, .btn-soft, .btn-google, .go, .how-step, details summary{
+  transition:transform .15s ease, opacity .15s ease, background-color .15s ease, box-shadow .15s ease, color .15s ease;
+}
+a:active, button:active, .icon-btn:active, .card-cta:active, .btn-soft:active, .btn-google:active, .go:active{transform:scale(.96);}
+.btn-primary, .go, .card-cta.solid, .btn-soft{will-change:transform;}
+.btn-primary:hover, .go:hover, .card-cta.solid:hover, .btn-soft:hover{transform:translateY(-1px); box-shadow:0 8px 18px -6px rgba(0,105,255,.35);}
+.card{transition:transform .25s ease, box-shadow .25s ease;}
+.card:hover{transform:translateY(-4px);}

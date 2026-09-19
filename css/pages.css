@@ -14,7 +14,6 @@
 .search-card .placeholder{font-size:14.5px; color:#030303; padding:4px 2px 0; border:none; outline:none; resize:none; background:transparent; font-family:inherit; width:100%; flex:1;}
 .search-card textarea.placeholder::placeholder{color:rgba(3,3,3,.55);}
 .search-card .go{background:linear-gradient(180deg,#4a95ff,var(--blue1)); color:#fff; font-size:12.4px; padding:8px 18px; border-radius:11px; display:flex; align-items:center; gap:5px; box-shadow:inset 0 1px 0 rgba(255,255,255,.4);}
-.search-card .create-select{appearance:none; -webkit-appearance:none; -moz-appearance:none; border:none; background:transparent url('../assets/icon_lang_chevron.svg') no-repeat right 1px center/8px auto; padding:0 14px 0 0; margin:0; font-family:inherit; font-size:10.9px; color:#030303; opacity:.6; cursor:pointer;}
 .search-card .attach{width:20px; height:20px; opacity:.5;}
 .badge-row{display:flex; justify-content:center; gap:20px; margin-top:46px;}
 .badge-row img{height:40px;}
@@ -103,10 +102,10 @@
 .signup-card h1{font-size:21px; font-weight:500; margin-bottom:6px;}
 .signup-card .sub{font-size:11.5px; color:var(--muted); margin-bottom:20px;}
 .signup-row{display:flex; gap:10px;}
-.signup-row .form-group{flex:1;}
-.signup-card .form-group + .form-group,
-.signup-card .signup-row + .form-group,
-.signup-card .form-group + .signup-row{margin-top:12px;}
+.signup-row .form-group{flex:1; margin-top:0;}
+.signup-card > form > .form-group + .form-group,
+.signup-card > form > .signup-row + .form-group,
+.signup-card > form > .form-group + .signup-row{margin-top:12px;}
 .signup-card .btn-soft{margin-top:16px;}
 .signup-foot{font-size:11.5px; color:var(--muted); margin-top:16px;}
 .signup-foot a{color:var(--blue-text); font-weight:500;}
@@ -171,14 +170,14 @@
 .app-avatar{width:38px; height:38px; border-radius:50%; object-fit:cover;}
 .app-topbar-right .chevron{width:11px; height:11px; color:#9a9a9a;}
 
-.app-content{flex:1; overflow-y:auto; position:relative; background-color:#fff; background-image:url('../assets/hero_bg.jpg'); background-size:cover; background-repeat:no-repeat; background-position:top center; padding:115px 40px 70px; text-align:center;}
-.app-content h1{font-size:32px; font-weight:500; color:#141414; margin-bottom:30px;}
+.app-content{flex:1; overflow-y:auto; overflow-x:hidden; position:relative; background-color:#fff; background-image:url('../assets/hero_bg.jpg'); background-size:cover; background-repeat:no-repeat; background-position:top center; padding:80px 40px 50px; text-align:center;}
+.app-content h1{font-size:25px; font-weight:500; color:#141414; margin-bottom:20px;}
 
-/* GenerationBox : mêmes proportions que .search-card (Home), centré ici */
-.app-content .search-card{margin:0 auto;}
+/* GenerationBox : légèrement plus compact que sur la Home, remonté */
+.app-content .search-card{margin:0 auto; width:620px; height:108px; padding:10px 13px;}
 
-.templates-section{max-width:1160px; min-height:420px; margin:80px auto 0; text-align:left; background:rgba(255,255,255,.55); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); border:1px solid rgba(255,255,255,.7); border-radius:20px; padding:32px 34px; box-shadow:0 8px 30px -12px rgba(0,0,0,.12);}
-.templates-section h2{font-size:18px; font-weight:600; color:#141414;}
+.templates-section{max-width:1000px; min-height:300px; margin:44px auto 0; text-align:left; background:rgba(255,255,255,.55); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); border:1px solid rgba(255,255,255,.7); border-radius:20px; padding:26px 28px; box-shadow:0 8px 30px -12px rgba(0,0,0,.12);}
+.templates-section h2{font-size:16px; font-weight:600; color:#141414;}
 
 /* ============================================================
    WEBSITE — Page Principal (frames Figma 91:5994 / 101:173 / 111:400)

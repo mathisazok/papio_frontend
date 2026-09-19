@@ -1,20 +1,37 @@
-// ---- GenerationBox : placeholder dynamique selon "Ton site" / "Ton idée" ----
+// ---- GenerationBox : dropdown custom "Ton site" / "Ton idée" ----
 (function(){
   var PLACEHOLDERS = {
     site: "Indique le lien de ton site pour que Papio l'analyse...",
     idee: "Décris ton idée de site avec le plus de détails possible (objectif, pages, style, contenu)..."
   };
-  document.querySelectorAll('.create-select').forEach(function(sel){
-    var box = sel.closest('.search-card') || sel.closest('.cta-card');
-    if(!box) return;
-    var textarea = box.querySelector('textarea.placeholder');
-    if(!textarea) return;
-    function apply(){
-      var ph = PLACEHOLDERS[sel.value];
-      if(ph) textarea.setAttribute('placeholder', ph);
-    }
-    sel.addEventListener('change', apply);
-    apply();
+  document.querySelectorAll('.create-dd').forEach(function(dd){
+    var btn = dd.querySelector('.create-dd-btn');
+    var label = dd.querySelector('.create-dd-label');
+    var menu = dd.querySelector('.create-dd-menu');
+    var items = dd.querySelectorAll('.create-dd-item');
+    var box = dd.closest('.search-card') || dd.closest('.cta-card');
+    var textarea = box ? box.querySelector('textarea.placeholder') : null;
+
+    btn.addEventListener('click', function(e){
+      e.stopPropagation();
+      var wasOpen = dd.classList.contains('open');
+      document.querySelectorAll('.create-dd.open').forEach(function(o){ o.classList.remove('open'); });
+      if(!wasOpen) dd.classList.add('open');
+    });
+
+    items.forEach(function(item){
+      item.addEventListener('click', function(){
+        items.forEach(function(i){ i.classList.remove('active'); });
+        item.classList.add('active');
+        label.textContent = item.textContent;
+        dd.classList.remove('open');
+        var ph = PLACEHOLDERS[item.getAttribute('data-value')];
+        if(ph && textarea) textarea.setAttribute('placeholder', ph);
+      });
+    });
+  });
+  document.addEventListener('click', function(){
+    document.querySelectorAll('.create-dd.open').forEach(function(o){ o.classList.remove('open'); });
   });
 })();
 
