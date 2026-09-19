@@ -1,3 +1,23 @@
+// ---- GenerationBox : placeholder dynamique selon "Ton site" / "Ton idée" ----
+(function(){
+  var PLACEHOLDERS = {
+    site: "Indique le lien de ton site pour que Papio l'analyse...",
+    idee: "Décris ton idée de site avec le plus de détails possible (objectif, pages, style, contenu)..."
+  };
+  document.querySelectorAll('.create-select').forEach(function(sel){
+    var box = sel.closest('.search-card') || sel.closest('.cta-card');
+    if(!box) return;
+    var textarea = box.querySelector('textarea.placeholder');
+    if(!textarea) return;
+    function apply(){
+      var ph = PLACEHOLDERS[sel.value];
+      if(ph) textarea.setAttribute('placeholder', ph);
+    }
+    sel.addEventListener('change', apply);
+    apply();
+  });
+})();
+
 // ---- How it works: clickable steps (Home uniquement) ----
 (function(){
   var steps = document.querySelectorAll('.how-step');
