@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Papio — Pricing</title>
+<link rel="icon" href="assets/favicon_final.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/global.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+<div class="wrap">
+
+  <!-- NAV -->
+  <div class="nav full-bleed">
+    <div class="nav-inner">
+      <img class="nav-logo" src="assets/logo_final.png" alt="Papio">
+      <div class="nav-links">
+        <a>Solutions <img src="assets/icon_chevron_solutions.svg"></a>
+        <a>Resources <img src="assets/icon_chevron_ressources.svg"></a>
+        <a>Communauté</a><a>Pricing</a>
+      </div>
+      <div class="nav-right">
+        <a href="login.html" style="padding:6px 19px; font-size:12.5px; border-radius:9999px; background:#fff; border:1px solid rgba(0,0,0,.08); box-shadow:0 1px 2px rgba(0,0,0,.04);">Se connecter</a>
+        <a class="btn-primary" href="signup.html">Commencer</a>
+        <span class="btn-lang"><img src="assets/icon_lang_globe.svg">FR<img src="assets/icon_lang_chevron.svg"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRICING HERO -->
+  <div class="pricing-hero full-bleed">
+    <h1>Des plans qui s'adaptent à vous</h1>
+
+    <div class="toggle" id="toggle">
+      <button data-mode="monthly">Menseul</button>
+      <button data-mode="annual" class="active">Annuel <span class="off-badge">50% OFF</span></button>
+    </div>
+
+    <div class="cards">
+      <!-- STARTER -->
+      <div class="card">
+        <h3>Starter</h3><span class="card-badge">50% OFF</span>
+        <div class="card-price"><span class="old">19.99€</span><span class="new">9,99 $US</span></div>
+        <div class="card-period">/month, billed yearly</div>
+        <div class="card-select">100 credits / month <img src="assets/icon_chevron_solutions.svg"></div>
+        <button class="card-cta ghost" onclick="location.href='signup.html'">Get Started</button>
+        <div class="card-divider"></div>
+        <ul class="card-features">
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12l6 6L20 6" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Custom domains &amp; secure hosting</li>
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12l6 6L20 6" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Premium templates</li>
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12l6 6L20 6" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>AI Image Generation</li>
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12l6 6L20 6" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Remove Webild badge</li>
+          <li class="off"><span class="cross">✕</span>Faster generation &amp; editing speeds</li>
+          <li class="off"><span class="cross">✕</span>Blogs, Inbox &amp; Analytics</li>
+          <li class="off"><span class="cross">✕</span>Priority generation queue</li>
+          <li class="off"><span class="cross">✕</span>Transfer Ownership</li>
+          <li class="off"><span class="cross">✕</span>Priority support &amp; early access</li>
+        </ul>
+      </div>
+
+      <!-- PRO (featured) -->
+      <div class="card featured">
+        <h3>Pro</h3><span class="card-badge">50% OFF</span>
+        <div class="card-price"><span class="old">39.99</span><span class="new">19,99 $US</span></div>
+        <div class="card-period">/month, billed yearly</div>
+        <div class="card-select">200 credits / month <img src="assets/icon_chevron_solutions.svg"></div>
+        <button class="card-cta solid" onclick="location.href='signup.html'">Claim Annual Special</button>
+        <div class="card-divider"></div>
+        <ul class="card-features">
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12l6 6L20 6" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Custom domains &amp; secure hosting</li>
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12l6 6L20 6" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Premium templates</li>
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12l6 6L20 6" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>AI Image Generation</li>
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12l6 6L20 6" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Remove Webild badge</li>
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12l6 6L20 6" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Faster generation &amp; editing speeds</li>
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12l6 6L20 6" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Blogs, Inbox &amp; Analytics</li>
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12l6 6L20 6" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Priority generation queue</li>
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12l6 6L20 6" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Transfer Ownership</li>
+          <li class="off"><span class="cross">✕</span>Priority support &amp; early access</li>
+        </ul>
+      </div>
+
+      <!-- MAX -->
+      <div class="card">
+        <h3>Max</h3><span class="card-badge">50% OFF</span>
+        <div class="card-price"><span class="old">69.99€</span><span class="new">34,99 $US</span></div>
+        <div class="card-period">/month, billed yearly</div>
+        <div class="card-select">500 credits / month <img src="assets/icon_chevron_solutions.svg"></div>
+        <button class="card-cta ghost" onclick="location.href='signup.html'">Get Started</button>
+        <div class="card-divider"></div>
+        <ul class="card-features">
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12l6 6L20 6" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Custom domains &amp; secure hosting</li>
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12l6 6L20 6" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Premium templates</li>
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12l6 6L20 6" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>AI Image Generation</li>
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12l6 6L20 6" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Remove Webild badge</li>
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12l6 6L20 6" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Faster generation &amp; editing speeds</li>
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12l6 6L20 6" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Blogs, Inbox &amp; Analytics</li>
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12l6 6L20 6" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Priority generation queue</li>
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12l6 6L20 6" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Transfer Ownership</li>
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12l6 6L20 6" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Priority support &amp; early access</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="faq reveal">
+    <span class="tag"><img src="assets/icon_faq_tag.svg" style="width:17px;height:17px;">FAQ's</span>
+    <h2>Need more answers?</h2>
+    <p>Here are answers to our most asked questions</p>
+    <details class="faq-item" open>
+      <summary>Do I need an audience to start? <span>+</span></summary>
+      <div class="faq-body"><p>No. Plenty of sellers make their first sales through DMs, referrals or a single piece of content. An audience speeds you up, but it's not the price of entry.</p></div>
+    </details>
+    <details class="faq-item"><summary>What does it cost? <span>+</span></summary><div class="faq-body"></div></details>
+    <details class="faq-item"><summary>What can I sell on Commas? <span>+</span></summary><div class="faq-body"></div></details>
+    <details class="faq-item"><summary>How fast do I get paid? <span>+</span></summary><div class="faq-body"></div></details>
+    <details class="faq-item"><summary>Does Commas work in my country? <span>+</span></summary><div class="faq-body"></div></details>
+    <details class="faq-item"><summary>Is Commas a payment processor? <span>+</span></summary><div class="faq-body"></div></details>
+    <details class="faq-item"><summary>Can I move my existing business over? <span>+</span></summary><div class="faq-body"></div></details>
+    <details class="faq-item"><summary>What happened to FanBasis? <span>+</span></summary><div class="faq-body"></div></details>
+  </div>
+
+  <!-- CTA + FOOTER -->
+  <div class="cta-footer-wrap full-bleed">
+    <div class="cta">
+      <h2 class="accent-title">Prêt à donner vie à votre idée ?</h2>
+      <div class="cta-card">
+        <div class="placeholder">Demandez à Lovable de créer une page de destination pour mon...</div>
+        <div class="card-bottom-row">
+          <img src="assets/icon_attach_cta.svg" style="width:27px; height:27px; opacity:.5;">
+          <span class="spacer"></span>
+          <span style="font-size:10.9px; color:#030303; opacity:.5; display:flex; align-items:center; gap:5px;">Créer<img src="assets/icon_create_cta.svg" style="width:12px;height:12px;"></span>
+          <a class="go" href="signup.html">Commencer</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <img class="footer-wordmark" src="assets/papio_wordmark_t.png">
+      <img class="footer-logo" src="assets/logo_final.png">
+      <div class="footer-nav">
+        <div class="footer-col"><h4>Solution</h4>
+          <a>Agence Web</a><a>Métiers artisanaux</a><a>Entreprise de Service</a>
+          <a>Freelance &amp; Consultant <img src="assets/icon_diagonal_arrow.svg"></a>
+          <a>Infopreneur</a>
+        </div>
+        <div class="footer-col"><h4>Produit</h4>
+          <a>Tarifs</a><a>Réduction étudiante</a><a>Pour le travail</a><a>Fondateurs</a><a>Chefs de produit</a><a>Designers</a><a>Spécialistes du marketing</a><a>Ops</a><a>Ressources humaines</a>
+          <a>Prototypage <img src="assets/icon_diagonal_arrow.svg"></a>
+        </div>
+        <div class="footer-col"><h4>Ressources</h4>
+          <a>Devenir partenaire</a><a>Affiliés</a><a>Avis</a><a>Guides</a>
+        </div>
+        <div class="footer-col"><h4>Communauté</h4>
+          <a>Discord <img src="assets/icon_diagonal_arrow.svg"></a>
+          <a>Reddit <img src="assets/icon_diagonal_arrow.svg"></a>
+          <a>X / Twitter <img src="assets/icon_diagonal_arrow.svg"></a>
+          <a>YouTube <img src="assets/icon_diagonal_arrow.svg"></a>
+          <a>LinkedIn <img src="assets/icon_diagonal_arrow.svg"></a>
+        </div>
+      </div>
+      <div class="footer-bar">
+        <span class="btn-lang footer-lang"><img src="assets/icon_lang_globe_footer.svg">FR<img src="assets/icon_lang_chevron_footer.svg"></span>
+        <div class="footer-bottom"><a>Politique de Confidentialité</a><a>GGV</a></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="js/components.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

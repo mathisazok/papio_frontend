@@ -1,0 +1,73 @@
+/* ===== NAV ===== */
+.nav{position:relative; height:56px; display:flex; align-items:center; justify-content:center; background:rgba(255,255,255,.55); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-bottom:1px solid rgba(255,255,255,.4); z-index:10;}
+.nav-inner{width:1352px; display:flex; align-items:center; justify-content:space-between;}
+.nav-logo{height:23px;}
+.nav-links{display:flex; gap:20px; align-items:center; font-size:13px; color:rgba(0,0,0,.8); position:absolute; left:50%; transform:translateX(-50%);}
+.nav-links a{display:flex; align-items:center; gap:5px;}
+.nav-links img{width:13px; height:13px;}
+.nav-right{display:flex; align-items:center; gap:13px;}
+
+/* ===== BUTTONS ===== */
+.btn-primary{background:linear-gradient(180deg,#5aa0ff,#0058e0); color:#fff; font-size:12.5px; padding:7px 19px; border-radius:9999px; box-shadow:0 5px 10px -4px rgba(58,137,253,.55), inset 0 1px 0 rgba(255,255,255,.45); transition:transform .15s ease, box-shadow .15s ease;}
+.btn-primary:hover{transform:translateY(-1px); box-shadow:0 8px 14px -4px rgba(58,137,253,.6), inset 0 1px 0 rgba(255,255,255,.45);}
+.btn-secondary{padding:6px 19px; font-size:12.5px; border-radius:9999px; background:#fff; border:1px solid rgba(0,0,0,.08); box-shadow:0 1px 2px rgba(0,0,0,.04);}
+.btn-lang{padding:5px 3px; font-size:11.5px; display:flex; align-items:center; gap:5px; color:rgba(0,0,0,.75);}
+.btn-lang img{width:13px; height:13px;}
+
+/* ===== FORM FIELDS (design system) ===== */
+.form-group{text-align:left;}
+.form-group label{display:block; font-size:11.5px; color:#444; margin-bottom:6px;}
+.form-input{width:100%; height:38px; border-radius:10px; border:1px solid #e6e6e6; background:#fbfbfb; padding:0 12px; font-family:inherit; font-size:12.5px; color:#141414;}
+.form-input::placeholder{color:#9a9a9a;}
+.form-input:focus{outline:none; border-color:#9dc2ff;}
+.btn-google{width:100%; height:38px; border-radius:10px; border:1px solid #e6e6e6; background:#fff; display:flex; align-items:center; justify-content:center; gap:8px; font-family:inherit; font-size:12.5px; color:#141414; cursor:pointer;}
+.btn-soft{width:100%; height:38px; border-radius:10px; border:none; background:#abcefa; color:#fff; font-family:inherit; font-size:12.5px; font-weight:500; cursor:pointer;}
+.form-divider{display:flex; align-items:center; gap:12px; color:#9a9a9a; font-size:11px; margin:16px 0;}
+.form-divider::before,.form-divider::after{content:''; flex:1; height:1px; background:#e8e8e8;}
+.form-error{font-size:11px; color:#e0433a; margin:-4px 0 4px; text-align:left;}
+
+/* ===== "form card" bottom row (recherche hero + CTA) ===== */
+.card-bottom-row{margin-top:auto; display:flex; align-items:center; gap:10px;}
+.card-bottom-row .spacer{flex:1;}
+
+/* ===== CTA + FOOTER (bloc bas de page, identique sur toutes les pages) ===== */
+.cta-footer-wrap{
+  position:relative;
+  margin-top:100px;
+  padding:170px 0 120px;
+  text-align:center;
+  background:
+    radial-gradient(ellipse 660px 330px at 50% 0%, rgba(255,255,255,.75), rgba(255,255,255,0) 70%),
+    repeating-conic-gradient(from 210deg at 50% -10%, rgba(90,160,255,.28) 0deg 6deg, rgba(255,255,255,0) 6deg 14deg),
+    linear-gradient(180deg,#e4f0ff 0%,#d2e5ff 20%,#dcecff 55%,#eef5ff 100%);
+}
+.cta{width:1200px; margin:0 auto 100px; position:relative; z-index:1;}
+.accent-title{font-size:33px; margin-bottom:33px; background:linear-gradient(90deg,#0069ff,#56c7ff,#0069ff); -webkit-background-clip:text; background-clip:text; color:transparent;}
+.cta-card{width:466px; margin:0 auto; background:#fff; border-radius:23px; box-shadow:0 0 0 1px rgba(0,0,0,.08),0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1); padding:12px 14px; position:relative; height:100px; text-align:left; display:flex; flex-direction:column;}
+.cta-card .placeholder{font-size:13.5px; color:rgba(3,3,3,.55); padding:4px 2px 0;}
+.cta-card .go{background:linear-gradient(180deg,#4a95ff,var(--blue1)); color:#fff; font-size:12.4px; padding:8px 18px; border-radius:11px; box-shadow:inset 0 1px 0 rgba(255,255,255,.4);}
+
+.footer{width:1200px; margin:0 auto; background:#fff; border-radius:20px; padding:46px; position:relative; z-index:1; overflow:hidden; box-shadow:0 20px 40px -20px rgba(0,80,200,.15);}
+.footer-nav{display:flex; justify-content:space-between; gap:33px; position:relative; z-index:1;}
+.footer-logo{height:26px; margin-bottom:33px; display:block; position:relative; z-index:1;}
+.footer-col h4{font-size:11.5px; color:#1c1c1c; margin-bottom:13px;}
+.footer-col a{display:flex; align-items:center; gap:5px; font-size:11px; color:#636363; margin-bottom:13px;}
+.footer-col a img{width:12px; height:12px; opacity:.6;}
+.footer-wordmark{position:absolute; left:50%; bottom:-6%; transform:translateX(-50%); width:88%; opacity:.13; pointer-events:none; z-index:0;}
+.footer-bar{display:flex; justify-content:space-between; align-items:center; margin-top:60px; position:relative; z-index:1;}
+.footer-bottom{display:flex; gap:33px; font-size:11.5px; color:rgba(28,28,28,.8);}
+
+/* ===== FAQ (accordéon, identique sur toutes les pages) ===== */
+.faq{width:1200px; margin:180px auto 0; text-align:center;}
+.faq .tag{display:inline-flex; align-items:center; gap:5px; background:rgba(136,192,253,.1); border:1px solid rgba(136,192,253,.2); border-radius:15px; padding:6px 13px; color:#2e78ef; font-size:11.5px; font-weight:500; margin-bottom:20px;}
+.faq h2{font-size:31px; color:var(--ink); margin-bottom:13px;}
+.faq>p{color:rgba(20,20,20,.6); font-size:13.3px; margin-bottom:42px;}
+.faq-item{max-width:660px; margin:0 auto; text-align:left; border-bottom:1px solid var(--border2); padding:0;}
+.faq-item:first-child{background:#fff; border:1px solid var(--border2); border-radius:13px; box-shadow:0 14px 14px rgba(0,0,0,.05); border-bottom:1px solid var(--border2); margin-bottom:8px;}
+.faq-item summary{list-style:none; display:flex; justify-content:space-between; align-items:center; font-size:15px; font-weight:600; cursor:pointer; padding:20px;}
+.faq-item summary::-webkit-details-marker{display:none;}
+.faq-item summary span{transition:transform .3s ease; font-weight:400; color:#999;}
+.faq-item[open] summary span{transform:rotate(45deg);}
+.faq-body{max-height:0; overflow:hidden; transition:max-height .35s ease, padding .35s ease; padding:0 20px;}
+.faq-item[open] .faq-body{padding:0 20px 20px;}
+.faq-item p{font-size:13.3px; color:rgba(20,20,20,.6); line-height:1.48;}

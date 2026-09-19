@@ -1,0 +1,20 @@
+/* ===== DESIGN TOKENS ===== */
+:root{
+  --blue1:#0069ff; --blue2:#0073ff; --blue-text:#3385f9; --ink:#141414; --ink2:#171717;
+  --muted:#636363; --muted2:rgba(0,0,0,.54); --border:#eceae4; --border2:#dedddb;
+}
+
+/* ===== RESET ===== */
+*{box-sizing:border-box; margin:0; padding:0;}
+body{font-family:'Inter',sans-serif; color:#141414; background:#fff; width:100%; min-width:1600px;}
+body.app-page{min-width:0;}
+a{color:inherit; text-decoration:none;}
+img{display:block; max-width:100%;}
+
+/* ===== LAYOUT HELPERS ===== */
+.wrap{max-width:1600px; margin:0 auto; position:relative;}
+.full-bleed{width:100vw; position:relative; left:50%; right:50%; margin-left:-50vw; margin-right:-50vw;}
+
+/* ===== SCROLL REVEAL (état initial, l'animation est pilotée par js/components.js) ===== */
+.reveal{opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease;}
+.reveal.in{opacity:1; transform:translateY(0);}
