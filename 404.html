@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Papio — Page introuvable</title>
+<link rel="icon" href="assets/favicon_final.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/global.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/pages.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+<div class="wrap">
+
+  <!-- NAV -->
+  <div class="nav full-bleed">
+    <div class="nav-inner">
+      <a href="index.html"><img class="nav-logo" src="assets/logo_final.png" alt="Papio"></a>
+      <div class="nav-links">
+        <a>Solutions <img src="assets/icon_chevron_solutions.svg"></a>
+        <a>Ressources <img src="assets/icon_chevron_ressources.svg"></a>
+        <a>Communauté</a><a href="pricing.html">Tarifs</a>
+      </div>
+      <div class="nav-right" id="navRightError">
+        <a href="login.html" style="padding:6px 19px; font-size:12.5px; border-radius:9999px; background:#fff; border:1px solid rgba(0,0,0,.08); box-shadow:0 1px 2px rgba(0,0,0,.04);">Se connecter</a>
+        <a class="btn-primary" href="signup.html">Commencer</a>
+        <span class="btn-lang"><img src="assets/icon_lang_globe.svg">FR<img src="assets/icon_lang_chevron.svg"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 404 : prend tout l'écran, pas de footer -->
+  <div class="error-hero error-hero-full">
+    <span class="code">404</span>
+    <h1>Cette page n'existe pas</h1>
+    <p>Le lien est peut-être incorrect, ou la page a été déplacée. Vérifie l'adresse ou repars depuis l'accueil.</p>
+    <div class="state-actions" id="errorActions">
+      <a class="btn-outline" href="index.html">Retour à l'accueil</a>
+      <a class="btn-primary" href="pricing.html">Voir les tarifs</a>
+    </div>
+  </div>
+
+</div>
+
+<script src="js/auth.js"></script>
+<script>
+// Si l'utilisateur est déjà connecté, on adapte les CTA (retour au Dashboard plutôt que Sign up)
+(function(){
+  if(!window.PapioAuth || !PapioAuth.getSession()) return;
+  document.getElementById('navRightError').innerHTML =
+    '<a class="btn-primary" href="dashboard.html">Aller au Dashboard</a>';
+  document.getElementById('errorActions').innerHTML =
+    '<a class="btn-outline" href="dashboard.html">Retour au Dashboard</a>' +
+    '<a class="btn-primary" href="sites.html">Tes sites web</a>';
+})();
+</script>
+<script src="js/components.js"></script>
+</body>
+</html>

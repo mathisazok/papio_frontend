@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Papio — Dashboard</title>
+<title>Papio — Modèles</title>
 <link rel="icon" href="assets/favicon_final.png">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/global.css">
@@ -29,11 +29,11 @@
     </div>
 
     <nav class="app-nav">
-      <a class="app-nav-item active" href="dashboard.html">
+      <a class="app-nav-item" href="dashboard.html">
         <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 7.2L8 2l6 5.2V13.5a.9.9 0 0 1-.9.9H2.9a.9.9 0 0 1-.9-.9V7.2Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M6.2 14.4v-4.2h3.6v4.2" stroke="currentColor" stroke-width="1.3"/></svg>
         <span>Dashboard</span>
       </a>
-      <a class="app-nav-item" href="templates.html">
+      <a class="app-nav-item active" href="templates.html">
         <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="5" height="5" rx="1.2" stroke="currentColor" stroke-width="1.3"/><rect x="9" y="2" width="5" height="5" rx="1.2" stroke="currentColor" stroke-width="1.3"/><rect x="2" y="9" width="5" height="5" rx="1.2" stroke="currentColor" stroke-width="1.3"/><rect x="9" y="9" width="5" height="5" rx="1.2" stroke="currentColor" stroke-width="1.3"/></svg>
         <span>Modèles</span>
       </a>
@@ -85,35 +85,51 @@
       </div>
     </header>
 
-    <div class="app-content">
-      <h1>Prêt à donner vie à votre idée ?</h1>
-
-      <!-- GenerationBox : composant partagé avec la Home (.search-card) -->
-      <div class="search-card">
-        <textarea class="placeholder" placeholder="Demandez à Lovable de créer une page de destination pour mon..."></textarea>
-        <div class="card-bottom-row">
-          <img class="attach" src="assets/icon_attach_hero.svg">
-          <span class="spacer"></span>
-          <div class="create-dd">
-            <button type="button" class="create-dd-btn"><span class="create-dd-label">Ton site</span><img class="create-dd-chevron" src="assets/icon_lang_chevron.svg"></button>
-            <div class="create-dd-menu">
-              <div class="create-dd-item active" data-value="site">Ton site</div>
-              <div class="create-dd-item" data-value="idee">Ton idée</div>
-            </div>
-          </div>
-          <a class="go">Commencer</a>
+    <div class="app-content sites-content">
+      <div class="sites-head">
+        <div>
+          <h1>Modèles</h1>
+          <p class="sites-sub">Tous les modèles publics créés avec Papio — lance ton site en un clic</p>
         </div>
       </div>
 
-      <div class="templates-section">
-        <h2>Templates</h2>
+      <div class="toggle sites-toggle chip-filter" id="templatesFilter">
+        <button type="button" class="active" data-cat="all">Tous</button>
+        <button type="button" data-cat="Landing page">Landing page</button>
+        <button type="button" data-cat="Vitrine">Vitrine</button>
+        <button type="button" data-cat="E-commerce">E-commerce</button>
+        <button type="button" data-cat="Portfolio">Portfolio</button>
+      </div>
+
+      <div class="sites-grid" id="templatesGrid"></div>
+
+      <div class="sites-empty" id="templatesEmpty" style="display:none;">
+        <p>Aucun modèle dans cette catégorie pour le moment.</p>
       </div>
     </div>
   </main>
 </div>
 
+<!-- Popup Aperçu modèle -->
+<div class="site-preview-overlay" id="templatePreviewOverlay">
+  <div class="site-preview-card">
+    <button class="icon-btn site-preview-close" type="button" aria-label="Fermer">
+      <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 2l10 10M12 2 2 12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+    </button>
+    <div class="site-preview-thumb"><div class="site-preview-canvas"></div></div>
+    <div class="site-preview-info">
+      <h3 id="tplPreviewName"></h3>
+      <p id="tplPreviewMeta"></p>
+    </div>
+    <div class="site-preview-actions">
+      <a class="btn-primary" id="tplPreviewUse">Utiliser ce modèle</a>
+    </div>
+  </div>
+</div>
+
 <script src="js/auth.js"></script>
 <script src="js/sites-store.js"></script>
+<script src="js/templates-data.js"></script>
 <script src="js/components.js"></script>
 <script src="js/app.js"></script>
 <script src="js/settings-modal.js"></script>

@@ -32,3 +32,41 @@ a:active, button:active, .icon-btn:active, .card-cta:active, .btn-soft:active, .
 .btn-primary:hover, .go:hover, .card-cta.solid:hover, .btn-soft:hover{transform:translateY(-1px); box-shadow:0 8px 18px -6px rgba(0,105,255,.35);}
 .card{transition:transform .25s ease, box-shadow .25s ease;}
 .card:hover{transform:translateY(-4px);}
+
+/* ===== Micro-animation logo (battement d'ailes au hover) ===== */
+@keyframes wingFlap{
+  0%,100%{transform:scale(1,1);}
+  50%{transform:scale(1,0.82);}
+}
+.nav-logo, .footer-logo, .signup-logo, .app-logo-mark{transform-origin:center; transition:filter .2s ease;}
+a:hover > .nav-logo, a:hover > .footer-logo, a:hover > .signup-logo, a:hover > .app-logo-mark{animation:wingFlap .5s ease-in-out;}
+
+/* ===== Parallax fond ciel ===== */
+.hero-bg{will-change:transform;}
+.cta-footer-wrap{will-change:background-position;}
+
+/* ===== Hover magnétique (JS applique translate via style inline) ===== */
+.btn-primary, .go, .card-cta.solid{will-change:transform;}
+
+/* ===== Transition de page (fade) ===== */
+body{opacity:1; transition:opacity .22s ease;}
+body.page-fade-out{opacity:0;}
+
+/* ===== Curseur personnalisé ===== */
+.custom-cursor{position:fixed; top:0; left:0; width:9px; height:9px; margin:-4.5px 0 0 -4.5px; border-radius:50%; background:var(--blue1); pointer-events:none; z-index:9999; opacity:0; transition:transform .15s ease, opacity .2s ease, width .18s ease, height .18s ease, margin .18s ease, background .18s ease; mix-blend-mode:normal;}
+.custom-cursor.visible{opacity:.85;}
+.custom-cursor.hovering{width:34px; height:34px; margin:-17px 0 0 -17px; background:rgba(0,105,255,.14); border:1.5px solid var(--blue1);}
+@media (hover:none){ .custom-cursor{display:none;} }
+
+/* ===== Skeleton shimmer (Templates dashboard) ===== */
+.skeleton{position:relative; overflow:hidden; background:#e9edf3; border-radius:10px;}
+.skeleton::after{content:''; position:absolute; inset:0; transform:translateX(-100%); background:linear-gradient(90deg, transparent, rgba(255,255,255,.7), transparent); animation:shimmer 1.3s infinite;}
+@keyframes shimmer{100%{transform:translateX(100%);}}
+
+/* ===== Stagger apparition inputs (signup) ===== */
+.stagger-in{opacity:0; transform:translateY(10px); transition:opacity .45s ease, transform .45s ease;}
+.stagger-in.in{opacity:1; transform:translateY(0);}
+
+/* ===== Toggle prix : pulse de transition ===== */
+.card-price.pulse{animation:pricePulse .32s ease;}
+@keyframes pricePulse{0%{opacity:.35; transform:scale(.97);}100%{opacity:1; transform:scale(1);}}
