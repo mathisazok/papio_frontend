@@ -24,7 +24,11 @@
   function paneGeneral(){
     return '<div class="settings-header"><h2>Général</h2></div>' +
       '<div class="settings-field"><label>Mon entreprise</label><button class="btn-outline" type="button">Changer le logo</button></div>' +
-      '<div class="settings-field"><label>Description entreprise</label><textarea class="form-input settings-textarea" placeholder="Décrivez votre entreprise en quelques mots"></textarea></div>';
+      '<div class="settings-field"><label>Description entreprise</label><textarea class="form-input settings-textarea" placeholder="Décrivez votre entreprise en quelques mots"></textarea></div>' +
+      '<div class="settings-danger-zone">' +
+        '<div class="settings-danger-label">Zone de danger</div>' +
+        '<div class="settings-danger-row"><div><div class="settings-danger-title">Supprimer mon compte</div><p>Cette action est définitive et supprime toutes vos données.</p></div><button class="btn-outline settings-danger-btn" type="button" id="btnDeleteAccount">Supprimer mon compte</button></div>' +
+      '</div>';
   }
 
   function paneConnecteurs(){
@@ -84,6 +88,14 @@
 
     function renderPane(id){
       document.getElementById('settingsPane').innerHTML = PANES[id]();
+      var delBtn = document.getElementById('btnDeleteAccount');
+      if(delBtn){
+        delBtn.addEventListener('click', function(){
+          if(!confirm('Supprimer définitivement votre compte Papio ? Cette action est irréversible.')) return;
+          if(window.PapioAuth){ PapioAuth.deleteAccount(); }
+          window.location.href = 'index.html';
+        });
+      }
     }
     renderPane('general');
 

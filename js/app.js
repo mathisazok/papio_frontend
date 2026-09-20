@@ -54,14 +54,22 @@
 (function(){
   var form = document.getElementById('signupForm');
   if(!form || !window.PapioAuth) return;
+  PapioAuth.redirectIfAuthenticated();
   var errorEl = document.getElementById('signupError');
   form.addEventListener('submit', function(e){
     e.preventDefault();
+    var password = document.getElementById('password').value;
+    var passwordConfirm = document.getElementById('passwordConfirm');
+    if(passwordConfirm && password !== passwordConfirm.value){
+      errorEl.textContent = 'Les mots de passe ne correspondent pas.';
+      errorEl.style.display = 'block';
+      return;
+    }
     var user = {
       firstName: document.getElementById('firstName').value.trim(),
       lastName: document.getElementById('lastName').value.trim(),
       email: document.getElementById('email').value.trim(),
-      password: document.getElementById('password').value
+      password: password
     };
     var result = PapioAuth.register(user);
     if(!result.ok){
@@ -77,6 +85,7 @@
 (function(){
   var form = document.getElementById('loginForm');
   if(!form || !window.PapioAuth) return;
+  PapioAuth.redirectIfAuthenticated();
   var errorEl = document.getElementById('loginError');
   form.addEventListener('submit', function(e){
     e.preventDefault();
@@ -89,6 +98,19 @@
       return;
     }
     window.location.href = 'dashboard.html';
+  });
+})();
+
+// ---- Afficher / masquer un mot de passe (icône oeil, réutilisé sur toutes les pages auth) ----
+(function(){
+  document.querySelectorAll('.pw-toggle').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var input = document.getElementById(btn.getAttribute('data-target'));
+      if(!input) return;
+      var showing = input.type === 'text';
+      input.type = showing ? 'password' : 'text';
+      btn.classList.toggle('showing', !showing);
+    });
   });
 })();
 
@@ -107,23 +129,29 @@
     });
   }
 
-  var trigger = document.querySelector('.app-topbar-right');
-  if(!trigger) return;
-  var menu = document.createElement('div');
-  menu.className = 'logout-menu';
-  menu.innerHTML = '<button type="button" id="logoutBtn">Déconnexion</button>';
-  trigger.appendChild(menu);
-  trigger.addEventListener('click', function(e){
-    if(e.target.closest('.app-avatar') || e.target.closest('.chevron')){
-      menu.classList.toggle('open');
-    } else if(!e.target.closest('.logout-menu')){
+  var trigger = document.querySelector('.app-topbar-right, .ws-topbar-right');
+  if(trigger){
+    var menu = document.createElement('div');
+    menu.className = 'logout-menu';
+    menu.innerHTML = '<button type="button" class="settingsMenuItem" data-settings-trigger>Paramètres</button><button type="button" class="logoutMenuItem danger">Déconnexion</button>';
+    trigger.style.position = trigger.style.position || 'relative';
+    trigger.appendChild(menu);
+    var avatarSel = '.app-avatar, .ws-avatar, .chevron';
+    trigger.addEventListener('click', function(e){
+      if(e.target.closest(avatarSel)){
+        menu.classList.toggle('open');
+      } else if(!e.target.closest('.logout-menu')){
+        menu.classList.remove('open');
+      }
+    });
+    menu.querySelector('.logoutMenuItem').addEventListener('click', function(){
+      PapioAuth.logout();
+      window.location.href = 'index.html';
+    });
+    menu.querySelector('.settingsMenuItem').addEventListener('click', function(){
       menu.classList.remove('open');
-    }
-  });
-  document.getElementById('logoutBtn').addEventListener('click', function(){
-    PapioAuth.logout();
-    window.location.href = 'index.html';
-  });
+    });
+  }
 
   // GenerationBox du Dashboard -> crée réellement un site et ouvre l'éditeur (même flow que "+ Nouveau site")
   var goBtn = document.querySelector('.app-content .search-card .go');
@@ -276,12 +304,23 @@
   var popupPublish = document.getElementById('popupPublish');
   if(!btnShare || !btnPublish) return;
 
+  var topbar = document.querySelector('.ws-topbar');
+  function positionPopups(){
+    if(!topbar) return;
+    var top = topbar.offsetHeight + 8;
+    popupShare.style.top = top + 'px';
+    popupPublish.style.top = top + 'px';
+  }
   function toggle(popup){
     var wasOpen = popup.classList.contains('open');
     popupShare.classList.remove('open');
     popupPublish.classList.remove('open');
-    if(!wasOpen) popup.classList.add('open');
+    if(!wasOpen){
+      positionPopups();
+      popup.classList.add('open');
+    }
   }
+  window.addEventListener('resize', positionPopups);
   btnShare.addEventListener('click', function(){ toggle(popupShare); });
   btnPublish.addEventListener('click', function(){ toggle(popupPublish); });
   document.addEventListener('click', function(e){
@@ -781,6 +820,17 @@
     camera.updateProjectionMatrix();
     renderer.setSize(wrap.clientWidth, wrap.clientHeight);
   });
+})();
+
+// ---- Sidebar "Suivi" : pointer vers le site le plus récent de l'utilisateur, pas la démo générique ----
+(function(){
+  if(!window.PapioSites) return;
+  var link = document.querySelector('.app-nav-item[href="site-stats.html"]');
+  if(!link) return;
+  var sites = PapioSites.getAll();
+  if(!sites.length) return;
+  var mostRecent = sites.reduce(function(a,b){ return a.updatedAt > b.updatedAt ? a : b; });
+  link.href = 'site-stats.html?site=' + encodeURIComponent(mostRecent.id);
 })();
 
 // ---- Menu mobile (ouvre/ferme la sidebar app-shell en dessous de 1024px) ----

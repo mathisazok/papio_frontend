@@ -2,6 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Papio — Sign up</title>
 <link rel="icon" href="assets/favicon_final.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -47,7 +48,22 @@
 
           <div class="form-group">
             <label>Mot de passe</label>
-            <input class="form-input" type="password" id="password" placeholder="••••••••" required minlength="6">
+            <div class="pw-field">
+              <input class="form-input" type="password" id="password" placeholder="••••••••" required minlength="6">
+              <button type="button" class="pw-toggle" data-target="password" aria-label="Afficher le mot de passe">
+                <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 8s2.5-5 7-5 7 5 7 5-2.5 5-7 5-7-5-7-5Z" stroke="currentColor" stroke-width="1.2"/><circle cx="8" cy="8" r="2.2" stroke="currentColor" stroke-width="1.2"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Confirmer le mot de passe</label>
+            <div class="pw-field">
+              <input class="form-input" type="password" id="passwordConfirm" placeholder="••••••••" required minlength="6">
+              <button type="button" class="pw-toggle" data-target="passwordConfirm" aria-label="Afficher le mot de passe">
+                <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 8s2.5-5 7-5 7 5 7 5-2.5 5-7 5-7-5-7-5Z" stroke="currentColor" stroke-width="1.2"/><circle cx="8" cy="8" r="2.2" stroke="currentColor" stroke-width="1.2"/></svg>
+              </button>
+            </div>
           </div>
 
           <p class="form-error" id="signupError" style="display:none;"></p>
